@@ -1,4 +1,3 @@
-import "bootstrap-sass";
 import './style/index.scss';
 
 class SimpleClass {

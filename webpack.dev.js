@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const WebpackNotifierPlugin = require('webpack-notifier');
+const projPkg = require('./package.json');
 
 module.exports = merge(common, {
     module: {
@@ -29,6 +31,7 @@ module.exports = merge(common, {
         open: true
     },
     plugins: [
+        new WebpackNotifierPlugin({ title: projPkg.name }),
         // compile time plugins
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"',

@@ -1,23 +1,6 @@
-$navbar-default-bg: #312312;
-$light-orange: #ff8c00;
+$navbar-default-bg: #f5890e;
+$light-orange: #3d464e;
 $navbar-default-color: $light-orange;
 
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-
-body {
-    background-color: lightblue;
-    h1 {
-        background-color: grey;
-        font-size: 15;
-    }
-    
-    div {
-        background: url('../assets/images/Hello-How-Are-You.jpg');
-        padding-top: 10px;
-        width: 25%;
-        height: 50%;
-        border: 10pt 5pt 5pt 10pt;
-        border-color: rgb(149, 72, 221);
-    }
-}
