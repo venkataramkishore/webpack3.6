@@ -5,13 +5,18 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: ["babel-polyfill", "jquery", "bootstrap-sass", "./src/app.js"],
+    entry: ["babel-polyfill", "jquery", "bootstrap-sass", "./src/app.ts"],
     output: {
         filename: '[name].bundle.[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.(png|svg|jpe?g|gif)$/,
                 loader: ['url-loader']
@@ -52,6 +57,6 @@ module.exports = {
     ],
     resolveLoader: {
         modules: ["node_modules"],
-        extensions: [".js", ".json", ".png", ".jpeg", ".jpg", ".svg", ".eot", ".woff", "woff2"]
+        extensions: [".tsx", ".ts", ".js", ".json", ".png", ".jpeg", ".jpg", ".svg", ".eot", ".woff", "woff2"]
     }
 };
