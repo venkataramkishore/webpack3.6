@@ -4,7 +4,7 @@ webpack3.6 build with babel compiler
 Motivation is to create a simple project using webpack build system. Although we have lot of frameworks-cli available, this is just for learning purpose.
 
 My idea is to create a working build system with regular development work.
-
+This branch contains TypeScript compiler, jquery and bootstrap imported in ts file.
 You can clone this project or just copy files for setup your own project.
 
 If you want to test the build system.

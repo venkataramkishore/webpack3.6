@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: ["babel-polyfill", "jquery", "bootstrap-sass", "./src/app.ts"],
+    entry: "./src/app.ts",
     output: {
         filename: '[name].bundle.[hash].js',
         path: path.resolve(__dirname, 'dist')

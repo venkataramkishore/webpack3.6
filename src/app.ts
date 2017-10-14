@@ -1,4 +1,6 @@
-import './style/index.scss';
+import "bootstrap";
+import * as $ from "jquery";
+import "./style/index.scss";
 
 class SimpleClass {
 
@@ -6,12 +8,15 @@ class SimpleClass {
     private appName: string;
 
     constructor() {
-        this.appName = 'Webpack 3.6 with typescript application name';
+        this.appName = "Welcome kishore..!!";
+        $("#myModal").modal("show");
     }
 
-    printInConsole(): void {
+    public printInConsole(): void {
         console.log(this.appName);
-        console.log('I am constructed and called successfully..!!');
+        console.log("I am constructed and called successfully..!!");
+        console.log("I have open question about running application..!?");
+        console.log("Not anymore");
     }
 }
 

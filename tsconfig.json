@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
+        "target": "es6", // Needed es6 to resolve the jquery iterable issue
+        //https://github.com/DefinitelyTyped/DefinitelyTyped/issues/17239
         "sourceMap": true,
         "outDir": "./src/",
         "noImplicitAny": true
