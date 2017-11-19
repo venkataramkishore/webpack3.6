@@ -1,0 +1,71 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{$ctrl.appHeaders.brand}}</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <div ng-repeat="menuItem in $ctrl.appHeaders.appMenu">
+                    <li ng-show="menuItem.subMenu.length==0" ng-class="{ 'active': menuItem.active, '': !menuItem.active }">
+                        <a ui-sref="menuItem.href">{{menuItem.name}}}
+                            <span class="sr-only" ng-show="menuItem.active">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown" ng-show="menuItem.subMenu.length>0" ng-class="{ 'active': menuItem.active, '': !menuItem.active }">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{menuItem.name}}}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" ng-repeat="item in menuitem.subMenu">
+                            <li ng-class="{ 'active': item.active, '': !item.active }">
+                                <a ui-sref="item.url">{{item.name}}}
+                                    <span class="sr-only" ng-show="item.active">(current)</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <div ng-repeat="menuItem in $ctrl.appHeaders.userMenu">
+                    <li ng-show="menuItem.subMenu.length==0" ng-class="{ 'active': menuItem.active, '': !menuItem.active }">
+                        <a ui-sref="menuItem.href">{{menuItem.name}}}
+                            <span class="sr-only" ng-show="menuItem.active">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown" ng-show="menuItem.subMenu.length>0" ng-class="{ 'active': menuItem.active, '': !menuItem.active }">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{menuItem.name}}}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" ng-repeat="item in menuitem.subMenu">
+                            <li ng-class="{ 'active': item.active, '': !item.active }">
+                                <a ui-sref="item.url">{{item.name}}}
+                                    <span class="sr-only" ng-show="item.active">(current)</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

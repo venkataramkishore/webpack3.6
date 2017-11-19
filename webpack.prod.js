@@ -7,6 +7,11 @@ const MinifyPlugin = require("babel-minify-webpack-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = merge(common, {
+
+    output: {
+        filename: '[name].bundle.[hash].js',
+        path: path.resolve(__dirname, 'dist')
+    },
     module: {
         rules: [
             {
@@ -22,6 +27,11 @@ module.exports = merge(common, {
         new ExtractTextPlugin({
             filename: 'build.min.css',
             allChunks: true,
+        }),
+        // build optimization plugins
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'vendor-[hash].min.js',
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,

@@ -6,6 +6,9 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const projPkg = require('./package.json');
 
 module.exports = merge(common, {
+    output: {
+        filename: 'bundle.js'
+    },
     module: {
         rules: [
             {
@@ -26,6 +29,7 @@ module.exports = merge(common, {
         ignored: [/node_modules/, "test/**/*"]
     },
     devServer: {
+        port: 3000,
         hot: true,
         open: true
     },

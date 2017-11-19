@@ -1,16 +1,39 @@
+// {
+//     "compilerOptions": {
+//         "module": "commonjs",
+//         "target": "es6", // Needed es6 to resolve the jquery iterable issue
+//         //https://github.com/DefinitelyTyped/DefinitelyTyped/issues/17239
+//         "sourceMap": true,
+//         "outDir": "./src/",
+//         "noImplicitAny": false
+//     },
+//     "exclude": [
+//         "node_modules",
+//         "dist",
+//         "**/*.spec.ts"
+//     ],
+//     "include": [
+//         "src/**/*"
+//     ]
+// }
 {
+    "compileOnSave": false,
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es6", // Needed es6 to resolve the jquery iterable issue
-        //https://github.com/DefinitelyTyped/DefinitelyTyped/issues/17239
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "dom",
+            "es2015",
+            "es6"
+        ],
+        "target": "es6",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
         "sourceMap": true,
-        "outDir": "./src/",
-        "noImplicitAny": true
-    },
-    "exclude": [
-        "node_modules"
-    ],
-    "include": [
-        "src/*"
-    ]
+        "skipLibCheck": true
+    }
 }

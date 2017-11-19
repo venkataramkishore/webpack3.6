@@ -3,25 +3,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
+var TypedocWebpackPlugin = require('typedoc-webpack-plugin');
 
 module.exports = {
-    entry: "./src/app.ts",
-    output: {
-        filename: '[name].bundle.[hash].js',
-        path: path.resolve(__dirname, 'dist')
-    },
+    entry: "./src/main.module.ts",
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: /node_modules/
             },
             {
                 test: /\.(png|svg|jpe?g|gif)$/,
                 loader: ['url-loader']
             },
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            },
             {
                 test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url-loader?limit=10000&mimetype=application/font-woff'
@@ -34,17 +35,16 @@ module.exports = {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file-loader'
             },
+            {
+                test: /\.json(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'json-loader'
+            },
         ]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        // build optimization plugins
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor-[hash].min.js',
-        }),
         new HtmlWebpackPlugin({
-            title: 'Angular Typescript',
+            title: 'AngularJS Typescript',
             template: 'index.html'
         }),
         new CopyWebpackPlugin([
@@ -54,9 +54,20 @@ module.exports = {
             $: "jquery",
             jQuery: 'jquery'
         }),
+        new TypedocWebpackPlugin({
+            name: 'Contoso',
+            mode: 'file',
+            theme: './typedoc-theme/',
+            includeDeclarations: false,
+            ignoreCompilerErrors: true,
+        },
+            "./src")
     ],
     resolveLoader: {
-        modules: ["node_modules"],
-        extensions: [".tsx", ".ts", ".js", ".json", ".png", ".jpeg", ".jpg", ".svg", ".eot", ".woff", "woff2"]
+        modules: [
+            "node_modules",
+            "./src"
+        ],
+        extensions: [".ts", ".tsx", ".js", ".json", ".png", ".jpeg", ".jpg", ".svg", ".eot", ".woff", "woff2"]
     }
 };

@@ -2,7 +2,6 @@
   "name": "webpack3.6",
   "version": "1.0.0",
   "description": "",
-  "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
@@ -15,6 +14,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-ng-inject": "^1.0.0",
     "babel-preset-env": "^1.6.0",
     "bootstrap-sass": "^3.3.7",
     "bootstrap-sass-webpack": "0.0.3",
@@ -34,6 +34,8 @@
     "ts-loader": "^2.3.7",
     "tslint": "^5.7.0",
     "tslint-eslint-rules": "^4.1.1",
+    "typedoc": "^0.9.0",
+    "typedoc-webpack-plugin": "^1.1.4",
     "typescript": "^2.5.3",
     "url-loader": "^0.6.2",
     "webpack": "^3.7.1",
@@ -42,13 +44,20 @@
     "webpack-notifier": "^1.5.0"
   },
   "dependencies": {
+    "@types/angular": "^1.6.32",
+    "@types/angular-ui-router": "^1.1.40",
     "@types/jquery": "^3.2.13",
+    "@types/moment": "^2.13.0",
+    "angular": "^1.6.6",
+    "angular-ui-router": "^0.4.3",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "bootstrap-loader": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
     "file-loader": "^1.1.5",
     "jquery": "3.2.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1",
     "url-loader": "^0.6.2"
   }
 }
